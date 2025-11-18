@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+      <h1 class="text-center mb-4">Signup</h1>
+
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <div class="d-grid mt-3">
+              <button type="submit" class="btn btn-primary">Signup</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% if details %}
+  <div class="container mt-4">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="alert alert-success">
+          <h5>Submitted Details:</h5>
+          <p>Name: {{ details.name }}</p>
+          <p>Email: {{ details.email }}</p>
+          <p>Phone: {{ details.phone }}</p>
+          <p>Address: {{ details.address }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}

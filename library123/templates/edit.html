@@ -1,0 +1,11 @@
+{% extends 'home.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<h1>Edit book</h1>
+ <form method="POST" class="border p-4 rounded shadow-sm" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form |crispy }}
+        <button type="submit" class="btn btn-primary w-100 mt-3">Submit</button>
+    </form>
+{% endblock %}

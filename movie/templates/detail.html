@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container mt-5">
+    <div class="row align-items-center">
+        <!-- Left side - Movie Image -->
+        <div class="col-md-5 text-center">
+            <img src="{{ movie.image.url }}" class="img-fluid rounded shadow" alt="{{ movie.title }}">
+        </div>
+
+        <!-- Right side - Movie Details -->
+        <div class="col-md-7">
+            <h2 class="mb-4">{{ movie.title }}</h2>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Director</th>
+                    <td>{{ movie.director }}</td>
+                </tr>
+                <tr>
+                    <th>Year</th>
+                    <td>{{ movie.year }}</td>
+                </tr>
+                <tr>
+                    <th>Language</th>
+                    <td>{{ movie.language }}</td>
+                </tr>
+                <tr>
+                    <th>Description</th>
+                    <td>{{ movie.description }}</td>
+                </tr>
+            </table>
+
+            <a href="{% url 'view' %}" class="btn btn-secondary mt-3">Back to Movies</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
